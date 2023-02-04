@@ -6,7 +6,7 @@ type GreetingPropsType = {
     setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void // need to fix any
     addUser: () => void // need to fix any
     onBlur: () => void // need to fix any
-    onEnter: (e: React.KeyboardEvent<HTMLInputElement>) => void // need to fix any
+    onEnter: (e: KeyboardEvent<HTMLInputElement>) => void // need to fix any
     error: string // need to fix any
     totalUsers: number // need to fix any
     lastUserName?: string // need to fix any
@@ -25,7 +25,8 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass = s.errorInput // need to fix with (? s.errorInput : s.input)
+    const inputClass = error ? s.errorInput : '' // need to fix with (?:)
+    //error ? s.error : ''; //
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
@@ -45,6 +46,13 @@ const Greeting: React.FC<GreetingPropsType> = (
                         className={inputClass}
                         onKeyDown={onEnter}
                         onBlur={onBlur}
+                        style={{
+                            outline: 'none',
+                            width: '372px',
+                            height: '36px',
+                            fontSize: '20px',
+                            border: '1px solid #D1D1D1'
+                        }}
                     />
                     <div id={'hw3-error'} className={s.error}>
                         {error}
@@ -56,16 +64,12 @@ const Greeting: React.FC<GreetingPropsType> = (
                     onClick={addUser}
                     className={s.button}
                     disabled={!name.trim()}
-                    // ДАВАЙТЕ ПРОСЛЕДИМ БОЕВОЙ ПУТЬ addUser:
-                    // ОТСЮДА ОН ВСПЛЫВЕТ В КОМПОНЕНТЕ GreetingContainer И ВЫЗОВЕТ pureAddUser->
-                    // А В pureAddUser ЛИБО ВЫДАСТ ОШИБКУ (ЕСЛИ ПУСТОЙ name) ИЛИ ЗАПУТСИТ addUserCallback->
-                    // КОТОРЫЙ ВСПЛЫВЕТ В КОМПОНЕНТЕ <HW3/> И ВЫЗОВЕТ pureAddUserCallback->
-                    // КОТОРЫЙ СОЗДАСТ НОВЫЙ ОБЪЕКТ И ЗАСЕТАЕТ ЕГО В users НЕ ПОТЕРЯВ И СТАРЫХ ЮЗЕРОВ
                 >
                     add
                 </button>
             </div>
-            {lastUserName && (
+
+            {lastUserName != "" && (
                 <div className={s.greeting}>
                     Привет <span id={'hw3-last-user'}>{lastUserName}</span>!
                 </div>
