@@ -2,15 +2,56 @@
 }
 
 .disabled {
+    width: 133px;
+    height: 30px;
+    left: 574px;
+    top: 1573px;
+
+    background: #004D99;
+    opacity: 0.5;
+    border-radius: 3px;
 }
 
 .secondary {
+    width: 128px;
+    height: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+
+    /* identical to box height, or 143% */
+
+    color: #0066CC;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .default {
+    width: 132px;
+    height: 30px;
+    left: 574px;
+    top: 1465px;
+
+    background: #0066CC;
+    border-radius: 3px;
 }
 
 .red {
+    width: 129px;
+    height: 30px;
+    left: 576px;
+    top: 1519px;
+
+    /* Danger/100 */
+
+    background: #CC1439;
+    border-radius: 3px;
 }
 
 .default:hover {
