@@ -2,4 +2,11 @@
 }
 
 .editableSpanContainer {
+
+}
+
+hr {
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid #D9D9D9;
 }
