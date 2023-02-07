@@ -4,15 +4,16 @@ type ActionType =
     | { type: 'sort'; payload: 'up' | 'down' }
     | { type: 'check'; payload: number }
 
-export const homeWorkReducer = (state: any, action: any): any => { // need to fix any
+export const homeWorkReducer = (state: UserType[], action: ActionType): UserType[] => {
     switch (action.type) {
         case 'sort': { // by name
-            // sort() создаёт новый массив? или нужно в ручную?...
-            return state // need to fix
+            const stateCopy = [...state]
+            if (action.payload === 'up') stateCopy.sort((a, b)=>a.name >b.name ? 1: -1)
+            if (action.payload === 'down') stateCopy.sort((a, b)=>a.name > b.name ? -1:1)
+            return stateCopy
         }
         case 'check': {
-            // filter() создаёт новый массив? или нужно в ручную?...
-            return state // need to fix
+            return state.filter(u => u.age > 18)
         }
         default:
             return state
