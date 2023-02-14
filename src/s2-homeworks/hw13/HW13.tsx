@@ -45,19 +45,18 @@ const HW13 = () => {
             .catch((e) => {
                 debugger
                 // дописать
-                if (x === false) {
-                    setCode('Ошибка 500!')
-                    setImage(error500)
-                    setText(e.response.data.errorText)
-                    setInfo(e.response.data.info)
-                }
                 if (x === undefined) {
                     setCode('Ошибка 400!')
                     setImage(error400)
                     setText(e.response.data.errorText)
                     setInfo(e.response.data.info)
+                } else if (!x) {
+                    setCode('Ошибка 500!')
+                    setImage(error500)
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
                 }
-                if (x === null) {
+                else  {
                     setCode('Error!')
                     setImage(errorUnknown)
                     setText(e.message)
@@ -70,13 +69,13 @@ const HW13 = () => {
         <div id={'hw13'}>
             <div className={s2.hwTitle}>Homework #13</div>
 
-            <div className={s2.hw} style={{padding:'20px 70px'}}>
+            <div className={s2.hw} style={{padding: '20px 70px'}}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        style={{marginRight:'15px'}}
+                        style={{marginRight: '15px'}}
                         // дописать
                         disabled={info === '...loading'}
                     >
@@ -86,7 +85,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        style={{marginRight:'15px'}}
+                        style={{marginRight: '15px'}}
                         // дописать
                         disabled={info === '...loading'}
                     >
@@ -96,7 +95,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        style={{marginRight:'15px'}}
+                        style={{marginRight: '15px'}}
                         // дописать
                         disabled={info === '...loading'}
                     >
