@@ -19,5 +19,23 @@ html {
 }
 
 .select {
+    background-color: blue;
+    width: 90px;
+    height: 35px;
+    border-radius: 8px;
+}
 
+.title {
+    margin-bottom: 15px;
+    background-color: #812b2b;
+    width: 185px;
+    border-radius: 15px;
+}
+
+.center {
+    text-align: center;
+}
+
+p {
+    color: white;
 }
