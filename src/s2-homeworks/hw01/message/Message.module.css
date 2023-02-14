@@ -1,8 +1,12 @@
 .message {
-
+    padding: 24px 70px;
 }
 
 .imageAndText {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    position: relative;
 
 }
 
@@ -11,7 +15,10 @@
 }
 
 .text {
-
+    background-color: #0066CC;
+    color: wheat;
+    margin-right: 10px;
+    border-radius: 8px;
 }
 
 .text:after {
@@ -19,13 +26,37 @@
 }
 
 .name {
-
+    justify-content: flex-end;
+    display: flex;
+    color: white;
+    padding: 5px 10px;
+    font-family: 'Montserrat';
+    font-size: 18px;
 }
 
 .messageText {
-
+    padding: 4px 8px;
+    color: white;
 }
 
 .time {
+    display: flex;
+    justify-content: end;
+    padding: 5px 14px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 10px;
+    color: #000000;
+}
 
+
+.dropletRight:after {
+    position: absolute;
+    content: '';
+    bottom: -6px;
+    width: 16px;
+    height: 16px;
+    clip-path: url(#right-droplet);
+    background-color: #0066CC;
+    right: 48px;
 }

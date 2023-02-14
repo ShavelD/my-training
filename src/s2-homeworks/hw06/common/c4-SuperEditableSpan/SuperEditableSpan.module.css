@@ -1,4 +1,6 @@
 .spanBlock {
+    display: flex;
+    gap: 12px;
 }
 
 .span {
